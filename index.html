@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla Stock Analysis Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>TSLA</h1>
+            <span>NASDAQ</span>
+        </div>
+        <div class="title">
+            <h1>Tesla Stock Analysis Dashboard</h1>
+            <p>Comprehensive analysis of Tesla's financial performance, market position, and investment outlook</p>
+        </div>
+        <div class="current-price">
+            <span class="price">$284.65</span>
+            <div class="price-range">
+                <span class="range">52W Range: $138.80 - $488.54</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="dashboard-row">
+            <div class="dashboard-card summary-card">
+                <h2>Executive Summary</h2>
+                <div class="summary-content">
+                    <p>Tesla maintains a dominant position in the EV market with significant technological advantages, strong brand recognition, and expanding manufacturing capacity. While the company has demonstrated impressive revenue growth (42.3% CAGR over 5 years) and achieved consistent profitability, our discounted cash flow analysis suggests the current stock price exceeds our calculated intrinsic values across multiple scenarios.</p>
+                    <div class="recommendation-box">
+                        <h3>Investment Recommendations</h3>
+                        <div class="investor-recommendations">
+                            <div class="investor-type">
+                                <span class="investor">Growth</span>
+                                <span class="recommendation hold">Hold/Selective Buy</span>
+                            </div>
+                            <div class="investor-type">
+                                <span class="investor">Value</span>
+                                <span class="recommendation avoid">Avoid</span>
+                            </div>
+                            <div class="investor-type">
+                                <span class="investor">Income</span>
+                                <span class="recommendation avoid">Avoid</span>
+                            </div>
+                            <div class="investor-type">
+                                <span class="investor">Speculative</span>
+                                <span class="recommendation buy">Selective Buy/Trade</span>
+                            </div>
+                            <div class="investor-type">
+                                <span class="investor">ESG</span>
+                                <span class="recommendation buy">Buy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-row">
+            <div class="dashboard-card">
+                <h2>Financial Performance</h2>
+                <div class="chart-container">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+                <div class="key-metrics">
+                    <div class="metric">
+                        <span class="metric-title">Revenue CAGR (5Y)</span>
+                        <span class="metric-value">42.3%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-title">Gross Margin (2023)</span>
+                        <span class="metric-value">19.0%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-title">Operating Margin (2023)</span>
+                        <span class="metric-value">9.6%</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-title">Net Margin (2023)</span>
+                        <span class="metric-value">8.2%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Valuation Analysis</h2>
+                <div class="chart-container">
+                    <canvas id="valuationChart"></canvas>
+                </div>
+                <div class="key-metrics">
+                    <div class="metric">
+                        <span class="metric-title">P/E Ratio</span>
+                        <span class="metric-value">80.2x</span>
+                        <span class="metric-comparison">(Industry: 10.3x)</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-title">P/S Ratio</span>
+                        <span class="metric-value">9.3x</span>
+                        <span class="metric-comparison">(Industry: 0.8x)</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-title">EV/EBITDA</span>
+                        <span class="metric-value">44.5x</span>
+                        <span class="metric-comparison">(Industry: 8.2x)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-row">
+            <div class="dashboard-card">
+                <h2>Technical Analysis</h2>
+                <div class="chart-container">
+                    <canvas id="technicalChart"></canvas>
+                </div>
+                <div class="key-metrics">
+                    <div class="metric">
+                        <span class="metric-title">RSI (14)</span>
+                        <span class="metric-value">59.31</span>
+                        <span class="metric-status neutral">Neutral</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-title">MACD</span>
+                        <span class="metric-value">26.02</span>
+                        <span class="metric-status positive">Bullish</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-title">Key Support</span>
+                        <span class="metric-value">$175.79</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-title">Key Resistance</span>
+                        <span class="metric-value">$381.59</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Market Position</h2>
+                <div class="chart-container">
+                    <canvas id="marketShareChart"></canvas>
+                </div>
+                <div class="key-metrics">
+                    <div class="metric">
+                        <span class="metric-title">EV Market Share</span>
+                        <span class="metric-value">18.4%</span>
+                        <span class="metric-status positive">Market Leader</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-title">Market Cap</span>
+                        <span class="metric-value">$900.5B</span>
+                        <span class="metric-comparison">(Toyota: $285.6B)</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-title">Annual Deliveries</span>
+                        <span class="metric-value">1.81M</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-row">
+            <div class="dashboard-card swot-card">
+                <h2>SWOT Analysis</h2>
+                <div class="swot-container">
+                    <div class="swot-item strengths">
+                        <h3>Strengths</h3>
+                        <ul>
+                            <li>Brand Strength & Customer Loyalty</li>
+                            <li>Technology Leadership</li>
+                            <li>Manufacturing Scale & Efficiency</li>
+                            <li>Supercharger Network</li>
+                            <li>Software & OTA Updates</li>
+                            <li>Energy Business Integration</li>
+                            <li>Direct Sales Model</li>
+                        </ul>
+                    </div>
+                    <div class="swot-item weaknesses">
+                        <h3>Weaknesses</h3>
+                        <ul>
+                            <li>Premium Pricing</li>
+                            <li>Limited Model Range</li>
+                            <li>Service Network Limitations</li>
+                            <li>Quality Control Issues</li>
+                            <li>Regulatory Challenges</li>
+                            <li>Executive Dependency</li>
+                            <li>Margin Pressure</li>
+                        </ul>
+                    </div>
+                    <div class="swot-item opportunities">
+                        <h3>Opportunities</h3>
+                        <ul>
+                            <li>Global EV Market Growth</li>
+                            <li>Autonomous Driving Monetization</li>
+                            <li>Energy Business Expansion</li>
+                            <li>New Markets & Models</li>
+                            <li>AI & Robotics</li>
+                            <li>Battery Technology Advancements</li>
+                            <li>Regulatory Tailwinds</li>
+                        </ul>
+                    </div>
+                    <div class="swot-item threats">
+                        <h3>Threats</h3>
+                        <ul>
+                            <li>Intensifying Competition</li>
+                            <li>Chinese Market Challenges</li>
+                            <li>Supply Chain Vulnerabilities</li>
+                            <li>Macroeconomic Headwinds</li>
+                            <li>Technological Disruption</li>
+                            <li>Regulatory Risks</li>
+                            <li>Valuation Expectations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-row">
+            <div class="dashboard-card">
+                <h2>Price Targets & Scenarios</h2>
+                <div class="chart-container">
+                    <canvas id="priceTargetChart"></canvas>
+                </div>
+                <div class="scenarios">
+                    <div class="scenario bull">
+                        <h3>Bull Case (25%)</h3>
+                        <span class="price-target">$500</span>
+                        <span class="upside positive">+75.7%</span>
+                        <p>FSD achieves Level 4/5 autonomy, energy business grows to 15-20% of revenue, margins recover above 25%</p>
+                    </div>
+                    <div class="scenario base">
+                        <h3>Base Case (50%)</h3>
+                        <span class="price-target">$250</span>
+                        <span class="upside negative">-12.2%</span>
+                        <p>Moderate growth in deliveries (15-20% annually), gradual FSD improvements, margins stabilize at lower levels</p>
+                    </div>
+                    <div class="scenario bear">
+                        <h3>Bear Case (25%)</h3>
+                        <span class="price-target">$100</span>
+                        <span class="upside negative">-64.9%</span>
+                        <p>Significant slowdown in delivery growth, FSD development stalls, margins compress due to competition</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-row">
+            <div class="dashboard-card conclusion-card">
+                <h2>Investment Conclusion</h2>
+                <p>Tesla represents a unique investment opportunity at the intersection of automotive, technology, and energy sectors. The company's innovative approach, brand strength, and leadership in the growing EV market position it for potential long-term success. However, the current valuation appears to price in much of this potential, creating a challenging risk-reward profile for new investors.</p>
+                <p>Our analysis suggests a cautious approach to Tesla as an investment at current levels. For those already holding the stock, maintaining positions with a long-term perspective may be appropriate given the company's growth potential. New investors should consider selective buying on significant pullbacks rather than aggressive accumulation at current prices.</p>
+                <div class="key-factors">
+                    <h3>Key Factors to Monitor</h3>
+                    <ol>
+                        <li>Vehicle delivery growth rates and production capacity expansion</li>
+                        <li>Gross and operating margin trends</li>
+                        <li>Progress on Full Self-Driving technology and regulatory developments</li>
+                        <li>New model introductions and production ramps</li>
+                        <li>Competitive dynamics in key markets, particularly China and Europe</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Analysis date: March 4, 2025 | Data sources: Company reports, Yahoo Finance, financial analysis</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
